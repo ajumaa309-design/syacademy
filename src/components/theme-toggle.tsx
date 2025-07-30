@@ -19,7 +19,7 @@ export function ThemeToggle() {
     return <div className="h-10 w-24" />
   }
   
-  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  const isDark = theme === 'dark'
 
   const toggleTheme = (checked: boolean) => {
     setTheme(checked ? "dark" : "light")
