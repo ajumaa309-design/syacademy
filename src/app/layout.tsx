@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { Tajawal } from 'next/font/google';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const tajawal = Tajawal({
   subsets: ['arabic'],
@@ -20,10 +21,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className="!scroll-smooth">
+    <html lang="ar" dir="rtl" className="!scroll-smooth" suppressHydrationWarning>
       <body className={`${tajawal.variable} font-body antialiased`}>
-        {children}
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
