@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Atom, FlaskConical, Book } from 'lucide-react';
+import { Atom, FlaskConical, Book, Leaf } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -8,6 +8,7 @@ export default function ScientificPage() {
     { name: 'الفيزياء', icon: <Atom className="w-10 h-10 text-primary" />, href: '/scientific/physics' },
     { name: 'الكيمياء', icon: <FlaskConical className="w-10 h-10 text-primary" />, href: '/scientific/chemistry' },
     { name: 'الرياضيات', icon: <Book className="w-10 h-10 text-primary" />, href: '/scientific/mathematics' },
+    { name: 'الأحياء', icon: <Leaf className="w-10 h-10 text-primary" />, href: '/scientific/biology' },
   ];
 
   return (
@@ -18,7 +19,7 @@ export default function ScientificPage() {
           المسار العلمي
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {subjects.map((subject) => (
           <Link href={subject.href} key={subject.name}>
             <Card className="text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer h-full">
