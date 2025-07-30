@@ -1,11 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Book, Scroll, Landmark } from 'lucide-react';
+import { Book, Scroll, Globe } from 'lucide-react';
 
 export default function LiteraryPage() {
   const subjects = [
-    { name: 'اللغة العربية', icon: <Book className="w-10 h-10 text-primary" /> },
-    { name: 'التاريخ', icon: <Scroll className="w-10 h-10 text-primary" /> },
-    { name: 'الفلسفة', icon: <Landmark className="w-10 h-10 text-primary" /> },
+    { name: 'عربي', icon: <Book className="w-10 h-10 text-primary" /> },
+    { name: 'انجليزي', icon: <Globe className="w-10 h-10 text-primary" /> },
+    { name: 'تاريخ', icon: <Scroll className="w-10 h-10 text-primary" /> },
   ];
 
   return (
