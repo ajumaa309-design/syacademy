@@ -1,11 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Book, FlaskConical, Atom } from 'lucide-react';
+import { Atom, FlaskConical, Book } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ScientificPage() {
   const subjects = [
-    { name: 'الفيزياء', icon: <Atom className="w-10 h-10 text-primary" /> },
-    { name: 'الكيمياء', icon: <FlaskConical className="w-10 h-10 text-primary" /> },
-    { name: 'الرياضيات', icon: <Book className="w-10 h-10 text-primary" /> },
+    { name: 'الفيزياء', icon: <Atom className="w-10 h-10 text-primary" />, href: '/scientific/physics' },
+    { name: 'الكيمياء', icon: <FlaskConical className="w-10 h-10 text-primary" />, href: '/scientific/chemistry' },
+    { name: 'الرياضيات', icon: <Book className="w-10 h-10 text-primary" />, href: '/scientific/mathematics' },
   ];
 
   return (
@@ -15,16 +16,18 @@ export default function ScientificPage() {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {subjects.map((subject) => (
-          <Card key={subject.name} className="text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-            <CardHeader>
-              <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
-                {subject.icon}
-              </div>
-            </CardHeader>
-            <CardContent>
-              <CardTitle className="text-2xl font-semibold">{subject.name}</CardTitle>
-            </CardContent>
-          </Card>
+          <Link href={subject.href} key={subject.name}>
+            <Card className="text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer h-full">
+              <CardHeader>
+                <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
+                  {subject.icon}
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardTitle className="text-2xl font-semibold">{subject.name}</CardTitle>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
     </div>
