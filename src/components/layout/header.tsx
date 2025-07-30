@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, BookHeart } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import Image from 'next/image';
 
 export function Header() {
   const navLinks = [
@@ -15,7 +16,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <BookHeart className="h-6 w-6 text-primary" />
+          <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={32} height={32} />
           <span className="font-headline">SyAcademy</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -43,7 +44,7 @@ export function Header() {
           <SheetContent side="right">
             <div className="flex flex-col gap-6 pt-10">
               <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-                <BookHeart className="h-6 w-6 text-primary" />
+                <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={32} height={32} />
                 <span className="font-headline">SyAcademy</span>
               </Link>
               <nav className="flex flex-col gap-4">

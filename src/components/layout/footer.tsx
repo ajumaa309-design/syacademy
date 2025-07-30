@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { BookHeart, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Twitter, Instagram, Linkedin } from 'lucide-react';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-white">
-              <BookHeart className="h-6 w-6 text-primary" />
+              <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={32} height={32} />
               <span className="font-headline">SyAcademy</span>
             </Link>
             <p className="text-sm">Empowering Education for All.</p>
