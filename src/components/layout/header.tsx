@@ -34,7 +34,7 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-2">
-           <ThemeToggle />
+          <ThemeToggle />
           <div className="hidden md:flex items-center gap-2">
             <Button variant="outline">تسجيل الدخول</Button>
             <Button>إنشاء حساب</Button>
