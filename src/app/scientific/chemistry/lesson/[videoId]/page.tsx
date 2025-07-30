@@ -53,8 +53,7 @@ export default function LessonPage({ params }: { params: { videoId: string } }) 
                 
                 <Link href={`/scientific/chemistry/lesson/${videoId}/quiz?topic=${encodeURIComponent(topic)}`}>
                     <Button size="lg">
-                        <BrainCircuit className="w-5 h-5 ml-2" />
-                        <span>اختبر فهمك بالذكاء الاصطناعي</span>
+                        <span>اختبر نفسك</span>
                     </Button>
                 </Link>
             </CardContent>
