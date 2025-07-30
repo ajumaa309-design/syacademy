@@ -71,7 +71,7 @@ export default function LessonPage({ params }: { params: { videoId: string } }) 
         <div className="aspect-video mb-12">
             <iframe
             className="w-full h-full rounded-lg shadow-2xl"
-            src={`https://www.youtube.com/embed/${videoId}`}
+            src={`https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0`}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -116,4 +116,3 @@ export default function LessonPage({ params }: { params: { videoId: string } }) 
     </div>
   );
 }
-
