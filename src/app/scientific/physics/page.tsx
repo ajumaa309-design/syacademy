@@ -10,13 +10,14 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PlayCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function PhysicsPage() {
   const units = Array.from({ length: 5 }, (_, i) => ({
     name: `الوحدة ${i + 1}`,
     lessons: Array.from({ length: 4 }, (_, j) => ({
       name: `الدرس ${j + 1}`,
-      videoId: null,
+      videoId: 'x7NM62xfOGM',
     })),
   }));
 
@@ -47,13 +48,24 @@ export default function PhysicsPage() {
                           {lesson.name}: محتوى الدرس. يمكنك إضافة فيديو، نص، أو
                           اختبارات هنا.
                         </p>
-                        <Button
-                          disabled
-                          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary/50 cursor-not-allowed transform group-hover:scale-110 transition-transform duration-300"
-                        >
-                          <PlayCircle className="w-5 h-5" />
-                          <span>قريباً</span>
-                        </Button>
+                        {lesson.videoId ? (
+                            <Link href={`/scientific/chemistry/lesson/${lesson.videoId}`}>
+                              <Button asChild>
+                                <div className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary hover:bg-primary/90 cursor-pointer transform group-hover:scale-110 transition-transform duration-300">
+                                  <PlayCircle className="w-5 h-5" />
+                                  <span>مشاهدة</span>
+                                </div>
+                              </Button>
+                            </Link>
+                          ) : (
+                            <Button
+                              disabled
+                              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary/50 cursor-not-allowed transform group-hover:scale-110 transition-transform duration-300"
+                            >
+                              <PlayCircle className="w-5 h-5" />
+                              <span>قريباً</span>
+                            </Button>
+                          )}
                       </div>
                     ))}
                   </div>

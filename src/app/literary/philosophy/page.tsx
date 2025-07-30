@@ -17,7 +17,7 @@ export default function PhilosophyPage() {
     name: `الوحدة ${i + 1}`,
     lessons: Array.from({ length: 4 }, (_, j) => ({
       name: `الدرس ${j + 1}`,
-      videoId: null,
+      videoId: 'x7NM62xfOGM',
     })),
   }));
 
@@ -49,6 +49,16 @@ export default function PhilosophyPage() {
                             {lesson.name}: محتوى الدرس. يمكنك إضافة فيديو، نص، أو
                             اختبارات هنا.
                           </p>
+                          {lesson.videoId ? (
+                            <Link href={`/scientific/chemistry/lesson/${lesson.videoId}`}>
+                              <Button asChild>
+                                <div className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary hover:bg-primary/90 cursor-pointer">
+                                  <PlayCircle className="w-5 h-5" />
+                                  <span>مشاهدة</span>
+                                </div>
+                              </Button>
+                            </Link>
+                          ) : (
                           <Button
                             disabled
                             className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary/50 cursor-not-allowed"
@@ -56,6 +66,7 @@ export default function PhilosophyPage() {
                             <PlayCircle className="w-5 h-5" />
                             <span>قريباً</span>
                           </Button>
+                          )}
                         </div>
                       ))}
                     </div>

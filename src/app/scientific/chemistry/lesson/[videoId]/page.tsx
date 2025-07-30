@@ -13,7 +13,8 @@ export default function LessonPage({ params }: { params: { videoId: string } }) 
   // A simple mapping from videoId to a topic.
   // In a real app, this would likely come from a database.
   const videoTopicMapping: Record<string, string> = {
-    'hnK-frJO1X8': 'الروابط التساهمية في الكيمياء'
+    'hnK-frJO1X8': 'الروابط التساهمية في الكيمياء',
+    'x7NM62xfOGM': 'درس عام'
   };
   const topic = videoTopicMapping[videoId] || 'درس الكيمياء';
 

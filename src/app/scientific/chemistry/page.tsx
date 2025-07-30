@@ -13,25 +13,13 @@ import { PlayCircle } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ChemistryPage() {
-  const units = Array.from({ length: 5 }, (_, i) => {
-    // Add videoId only for the first lesson of the first unit
-    if (i === 0) {
-      return {
-        name: `الوحدة ${i + 1}`,
-        lessons: Array.from({ length: 4 }, (_, j) => ({
-          name: `الدرس ${j + 1}`,
-          videoId: j === 0 ? 'hnK-frJO1X8' : null,
-        })),
-      };
-    }
-    return {
+  const units = Array.from({ length: 5 }, (_, i) => ({
       name: `الوحدة ${i + 1}`,
       lessons: Array.from({ length: 4 }, (_, j) => ({
         name: `الدرس ${j + 1}`,
-        videoId: null,
+        videoId: 'x7NM62xfOGM',
       })),
-    };
-  });
+  }));
 
 
   return (
