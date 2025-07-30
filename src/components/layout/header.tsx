@@ -1,11 +1,34 @@
+
+'use client';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Menu, User, LogOut } from 'lucide-react';
 import Image from 'next/image';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { useAuth } from '@/hooks/use-auth';
+import { useRouter } from 'next/navigation';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+
 
 export function Header() {
+  const { user, signout, loading } = useAuth();
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    await signout();
+    router.push('/');
+  };
+  
   const navLinks = [
     { href: '/', label: 'الرئيسية' },
     { href: '/#courses', label: 'المسارات' },
@@ -36,8 +59,44 @@ export function Header() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <div className="hidden md:flex items-center gap-2">
-            <Button variant="outline">تسجيل الدخول</Button>
-            <Button>إنشاء حساب</Button>
+            {!loading && (
+              user ? (
+                 <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                       <Avatar className="h-9 w-9">
+                        <AvatarImage src={user.photoURL || undefined} alt={user.email || 'User'} />
+                        <AvatarFallback>{user.email?.[0].toUpperCase()}</AvatarFallback>
+                      </Avatar>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56" align="end" forceMount>
+                    <DropdownMenuLabel className="font-normal">
+                      <div className="flex flex-col space-y-1">
+                        <p className="text-sm font-medium leading-none">مرحباً</p>
+                        <p className="text-xs leading-none text-muted-foreground">
+                          {user.email}
+                        </p>
+                      </div>
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
+                      <LogOut className="ml-2 h-4 w-4" />
+                      <span>تسجيل الخروج</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <>
+                  <Button variant="outline" asChild>
+                    <Link href="/auth/signin">تسجيل الدخول</Link>
+                  </Button>
+                  <Button asChild>
+                    <Link href="/auth/signup">إنشاء حساب</Link>
+                  </Button>
+                </>
+              )
+            )}
           </div>
           <Sheet>
             <SheetTrigger asChild>
@@ -54,18 +113,35 @@ export function Header() {
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) => (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="font-medium text-foreground/80 hover:text-foreground"
-                    >
-                      {link.label}
-                    </Link>
+                    <SheetClose asChild key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="font-medium text-foreground/80 hover:text-foreground"
+                      >
+                        {link.label}
+                      </Link>
+                    </SheetClose>
                   ))}
                 </nav>
-                <div className="flex flex-col gap-2 mt-4">
-                  <Button variant="outline">تسجيل الدخول</Button>
-                  <Button>إنشاء حساب</Button>
+                 <div className="flex flex-col gap-2 mt-4">
+                  {!loading && (
+                    user ? (
+                      <Button onClick={handleSignOut}>تسجيل الخروج</Button>
+                    ) : (
+                       <>
+                        <SheetClose asChild>
+                          <Button variant="outline" asChild>
+                            <Link href="/auth/signin">تسجيل الدخول</Link>
+                          </Button>
+                        </SheetClose>
+                        <SheetClose asChild>
+                          <Button asChild>
+                            <Link href="/auth/signup">إنشاء حساب</Link>
+                          </Button>
+                        </SheetClose>
+                       </>
+                    )
+                  )}
                 </div>
               </div>
             </SheetContent>
