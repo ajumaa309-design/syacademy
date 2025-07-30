@@ -16,7 +16,7 @@ export function CourseTracks() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <Link href="/elme" className="group">
+          <Link href="/scientific" className="group">
             <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:-translate-y-2">
               <div className="p-1 bg-gradient-to-br from-[hsl(var(--gradient-blue-start))] to-[hsl(var(--gradient-blue-end))]">
                 <CardContent className="p-8 bg-background rounded-b-lg">
@@ -25,7 +25,7 @@ export function CourseTracks() {
                       <Atom className="w-8 h-8 text-primary-foreground" />
                     </div>
                     <h3 className="text-2xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-br from-[hsl(var(--gradient-blue-start))] to-[hsl(var(--gradient-blue-end))]">
-                      Elme
+                      العلمي
                     </h3>
                   </div>
                   <p className="text-muted-foreground mb-6">
