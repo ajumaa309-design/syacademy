@@ -23,12 +23,7 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 256 100% 50%;
-    --radius: 0.5rem;
-
-    --gradient-blue-start: 217 100% 48%; /* #0065F8 */
-    --gradient-blue-end: 192 100% 50%; /* #00CAFF */
-    --gradient-purple-start: 256 100% 50%; /* #4300FF */
-    --gradient-purple-end: 170 100% 50%; /* #00FFDE */
+    --radius: 1rem; /* Increased from 0.5rem for more rounded corners */
   }
 
   .dark {
@@ -51,11 +46,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 256 100% 60%;
-
-    --gradient-blue-start: 217 100% 58%;
-    --gradient-blue-end: 192 100% 60%;
-    --gradient-purple-start: 256 100% 60%;
-    --gradient-purple-end: 170 100% 60%;
   }
 }
 
@@ -66,19 +56,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-  }
-}
-
-.animate-float {
-  animation: float linear infinite;
 }

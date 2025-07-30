@@ -1,8 +1,9 @@
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/home/hero';
-import { CourseTracks } from '@/components/home/course-tracks';
+import { Features } from '@/components/home/features';
 import { About } from '@/components/home/about';
+
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        <CourseTracks />
+        <Features />
         <About />
       </main>
       <Footer />

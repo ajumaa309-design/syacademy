@@ -2,60 +2,47 @@
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { Atom, BookOpen } from 'lucide-react';
+import React from 'react';
 
 export function Hero() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const bubbles = isMounted ? Array.from({ length: 20 }).map((_, i) => {
-    const size = Math.random() * 4 + 1; // 1rem to 5rem
-    const style = {
-      width: `${size}rem`,
-      height: `${size}rem`,
-      left: `${Math.random() * 100}%`,
-      animationDuration: `${Math.random() * 15 + 10}s`, // 10s to 25s
-      animationDelay: `${Math.random() * 5}s`,
-    };
-    return (
-      <div
-        key={i}
-        className="absolute bottom-[-10rem] bg-white/10 rounded-full animate-float"
-        style={style}
-      />
-    );
-  }) : [];
-
   return (
-    <section id="home" className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary to-accent" />
-      
-      <div className="absolute inset-0 z-10 bubbles">
-        {bubbles}
-      </div>
+    <section id="home" className="relative w-full h-[90vh] min-h-[700px] flex items-center justify-center text-center overflow-hidden">
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary via-blue-500 to-accent animate-[gradient-animation_8s_ease_infinite]" 
+        style={{backgroundSize: '200% 200%'}}
+      />
       
       <div className="relative z-20 container px-4 md:px-6">
-        <div className="max-w-3xl mx-auto space-y-6 flex flex-col items-center">
-          <Image src="https://i.postimg.cc/Jhjqr7cV/wight-logp.png" alt="SyAcademy Logo" width={150} height={150} className="mb-4" />
+        <div className="max-w-4xl mx-auto space-y-6 flex flex-col items-center">
           <h1 className="text-4xl font-headline font-extrabold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            أهلاً بكم في سي اكاديمي
+            تعلم. انمو. انجح.
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/80">
-            تجربة تعليمية عصرية، تفاعلية وسهلة الاستخدام، مصممة لجذب الطلاب وتسهيل التصفح.
+          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl">
+            اختر مسارك مع سي اكاديمي وأطلق العنان لإمكانياتك.
           </p>
-          <div>
-            <Link href="#courses">
-              <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 animate-pulse">
-                ابدأ التعلم
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <Link href="/scientific">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 w-64 h-16 text-xl rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+                <Atom className="w-7 h-7 ml-3" />
+                المسار العلمي
+              </Button>
+            </Link>
+            <Link href="/literary">
+              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary w-64 h-16 text-xl rounded-2xl shadow-lg transform transition-transform hover:scale-105">
+                <BookOpen className="w-7 h-7 ml-3" />
+                المسار الأدبي
               </Button>
             </Link>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        @keyframes gradient-animation {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+      `}</style>
     </section>
   );
 }

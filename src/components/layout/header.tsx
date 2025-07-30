@@ -7,9 +7,9 @@ import Image from 'next/image';
 export function Header() {
   const navLinks = [
     { href: '/', label: 'الرئيسية' },
-    { href: '#courses', label: 'المسارات' },
-    { href: '#about', label: 'من نحن' },
-    { href: '#contact', label: 'تواصل معنا' },
+    { href: '/#courses', label: 'المسارات' },
+    { href: '/#about', label: 'من نحن' },
+    { href: '/#contact', label: 'تواصل معنا' },
   ];
 
   return (
