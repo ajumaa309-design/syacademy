@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, FileQuestion } from 'lucide-react';
 import Link from 'next/link';
 
 export default function BiologyPage() {
@@ -69,6 +69,21 @@ export default function BiologyPage() {
                           )}
                         </div>
                       ))}
+                       <div
+                          className="flex items-center justify-between p-3 bg-accent/20 rounded-lg mt-4"
+                        >
+                          <p className="font-semibold">
+                            هل أنت مستعد لاختبار معلوماتك في كامل الوحدة؟
+                          </p>
+                           <Link href={`#`}>
+                              <Button variant="outline" asChild>
+                                <div className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md cursor-pointer">
+                                  <FileQuestion className="w-5 h-5" />
+                                  <span>أسئلة الوحدة</span>
+                                </div>
+                              </Button>
+                            </Link>
+                        </div>
                     </div>
                   ) : (
                     <p className="p-4 text-muted-foreground">
