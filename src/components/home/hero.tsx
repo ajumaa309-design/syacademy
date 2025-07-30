@@ -40,15 +40,15 @@ export function Hero() {
       <div className="relative z-20 container px-4 md:px-6">
         <div className="max-w-3xl mx-auto space-y-6">
           <h1 className="text-4xl font-headline font-extrabold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            Welcome to SyAcademy
+            أهلاً بكم في أكاديمية ساي
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/80">
-            A modern, engaging, and user-friendly experience designed to attract students and make navigation simple.
+            تجربة تعليمية عصرية، تفاعلية وسهلة الاستخدام، مصممة لجذب الطلاب وتسهيل التصفح.
           </p>
           <div>
             <Link href="#courses">
               <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                Start Learning
+                ابدأ التعلم
               </Button>
             </Link>
           </div>

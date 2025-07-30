@@ -6,10 +6,10 @@ import Image from 'next/image';
 
 export function Header() {
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#courses', label: 'Courses' },
-    { href: '#about', label: 'About' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#home', label: 'الرئيسية' },
+    { href: '#courses', label: 'المسارات' },
+    { href: '#about', label: 'من نحن' },
+    { href: '#contact', label: 'تواصل معنا' },
   ];
 
   return (
@@ -17,7 +17,7 @@ export function Header() {
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={32} height={32} />
-          <span className="font-headline">SyAcademy</span>
+          <span className="font-headline">أكاديمية ساي</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
@@ -31,21 +31,21 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
-          <Button variant="outline">Login</Button>
-          <Button>Register</Button>
+          <Button variant="outline">تسجيل الدخول</Button>
+          <Button>إنشاء حساب</Button>
         </div>
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle menu</span>
+              <span className="sr-only">فتح القائمة</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="right">
             <div className="flex flex-col gap-6 pt-10">
               <Link href="/" className="flex items-center gap-2 font-bold text-lg">
                 <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={32} height={32} />
-                <span className="font-headline">SyAcademy</span>
+                <span className="font-headline">أكاديمية ساي</span>
               </Link>
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link) => (
@@ -59,8 +59,8 @@ export function Header() {
                 ))}
               </nav>
               <div className="flex flex-col gap-2 mt-4">
-                <Button variant="outline">Login</Button>
-                <Button>Register</Button>
+                <Button variant="outline">تسجيل الدخول</Button>
+                <Button>إنشاء حساب</Button>
               </div>
             </div>
           </SheetContent>
