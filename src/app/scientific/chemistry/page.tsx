@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -7,14 +8,9 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { PlayCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ChemistryPage() {
   const units = [
@@ -75,36 +71,22 @@ export default function ChemistryPage() {
                             اختبارات هنا.
                           </p>
                           {lesson.videoId ? (
-                            <Dialog>
-                              <DialogTrigger asChild>
-                                <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary hover:bg-primary/90">
+                            <Link href={`/scientific/chemistry/lesson/${lesson.videoId}`}>
+                              <Button asChild>
+                                <div className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary hover:bg-primary/90 cursor-pointer">
                                   <PlayCircle className="w-5 h-5" />
                                   <span>مشاهدة</span>
-                                </button>
-                              </DialogTrigger>
-                              <DialogContent className="max-w-3xl">
-                                <DialogHeader>
-                                  <DialogTitle>{lesson.name}</DialogTitle>
-                                </DialogHeader>
-                                <div className="aspect-video">
-                                  <iframe
-                                    className="w-full h-full rounded-lg"
-                                    src={`https://www.youtube.com/embed/${lesson.videoId}`}
-                                    title="YouTube video player"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                  ></iframe>
                                 </div>
-                              </DialogContent>
-                            </Dialog>
+                              </Button>
+                            </Link>
                           ) : (
-                            <button
+                            <Button
                               disabled
                               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary/50 cursor-not-allowed"
                             >
                               <PlayCircle className="w-5 h-5" />
                               <span>قريباً</span>
-                            </button>
+                            </Button>
                           )}
                         </div>
                       ))}
