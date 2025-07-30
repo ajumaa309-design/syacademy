@@ -1,0 +1,32 @@
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Book, FlaskConical, Atom } from 'lucide-react';
+
+export default function ElmePage() {
+  const subjects = [
+    { name: 'فيزيا', icon: <Atom className="w-10 h-10 text-primary" /> },
+    { name: 'كيميا', icon: <FlaskConical className="w-10 h-10 text-primary" /> },
+    { name: 'رياضيات', icon: <Book className="w-10 h-10 text-primary" /> },
+  ];
+
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <h1 className="text-4xl font-bold text-center mb-12 font-headline">
+        مسار العلوم (Elme)
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {subjects.map((subject) => (
+          <Card key={subject.name} className="text-center hover:shadow-xl transition-shadow duration-300 cursor-pointer">
+            <CardHeader>
+              <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
+                {subject.icon}
+              </div>
+            </CardHeader>
+            <CardContent>
+              <CardTitle className="text-2xl font-semibold">{subject.name}</CardTitle>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}

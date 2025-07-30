@@ -16,7 +16,7 @@ export function CourseTracks() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <Link href="#" className="group">
+          <Link href="/elme" className="group">
             <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:-translate-y-2">
               <div className="p-1 bg-gradient-to-br from-[hsl(var(--gradient-blue-start))] to-[hsl(var(--gradient-blue-end))]">
                 <CardContent className="p-8 bg-background rounded-b-lg">
