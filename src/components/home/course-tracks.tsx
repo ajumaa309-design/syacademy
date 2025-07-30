@@ -40,7 +40,7 @@ export function CourseTracks() {
             </Card>
           </Link>
 
-          <Link href="#" className="group">
+          <Link href="/literary" className="group">
             <Card className="h-full overflow-hidden transition-all duration-300 ease-in-out group-hover:shadow-2xl group-hover:-translate-y-2">
               <div className="p-1 bg-gradient-to-br from-[hsl(var(--gradient-purple-start))] to-[hsl(var(--gradient-purple-end))]">
                 <CardContent className="p-8 bg-background rounded-b-lg">
@@ -49,7 +49,7 @@ export function CourseTracks() {
                       <BookOpen className="w-8 h-8 text-primary-foreground" />
                     </div>
                     <h3 className="text-2xl font-bold font-headline text-transparent bg-clip-text bg-gradient-to-br from-[hsl(var(--gradient-purple-start))] to-[hsl(var(--gradient-purple-end))]">
-                      Adabe
+                      الأدبي
                     </h3>
                   </div>
                   <p className="text-muted-foreground mb-6">
