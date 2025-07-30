@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 export function Hero() {
@@ -45,9 +46,11 @@ export function Hero() {
             A modern, engaging, and user-friendly experience designed to attract students and make navigation simple.
           </p>
           <div>
-            <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-              Start Learning
-            </Button>
+            <Link href="#courses">
+              <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+                Start Learning
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
