@@ -12,7 +12,7 @@ export function Footer() {
               <Image src="https://i.postimg.cc/Jhjqr7cV/wight-logp.png" alt="SyAcademy Logo" width={32} height={32} />
               <span className="font-headline">سي اكاديمي</span>
             </Link>
-            <p className="text-sm">التعليم، على طريقة سي اكاديمي.</p>
+            <p className="text-sm">تمكين التعليم للجميع.</p>
             <div className="flex space-x-4">
               <Link href="#" className="text-gray-400 hover:text-white">
                 <Twitter className="h-5 w-5" />
