@@ -15,7 +15,7 @@ export function CoursePaths() {
                 سواء كنت من محبي العلوم أو شغوفًا بالأدب، لدينا المسار المناسب لك.
             </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <Link href="/scientific">
                 <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-[#0065F8] to-[#00CAFF] hover:scale-105 transition-transform duration-300 h-full">
                 <Card className="text-center bg-background h-full rounded-xl">
