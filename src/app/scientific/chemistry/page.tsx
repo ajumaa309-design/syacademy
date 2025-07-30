@@ -1,13 +1,32 @@
+'use client';
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 import { PlayCircle } from 'lucide-react';
 
 export default function ChemistryPage() {
   const units = [
     {
       name: 'الوحدة 1',
-      lessons: Array.from({ length: 5 }, (_, i) => `الدرس ${i + 1}`),
+      lessons: [
+        { name: 'الدرس 1', videoId: 'hnK-frJO1X8' },
+        { name: 'الدرس 2', videoId: null },
+        { name: 'الدرس 3', videoId: null },
+        { name: 'الدرس 4', videoId: null },
+        { name: 'الدرس 5', videoId: null },
+      ],
     },
     {
       name: 'الوحدة 2',
@@ -47,12 +66,46 @@ export default function ChemistryPage() {
                   {unit.lessons.length > 0 ? (
                     <div className="space-y-2 p-2">
                       {unit.lessons.map((lesson) => (
-                        <div key={lesson} className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg">
-                          <p>{lesson}: محتوى الدرس. يمكنك إضافة فيديو، نص، أو اختبارات هنا.</p>
-                          <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary hover:bg-primary/90">
-                            <PlayCircle className="w-5 h-5" />
-                            <span>مشاهدة</span>
-                          </button>
+                        <div
+                          key={lesson.name}
+                          className="flex items-center justify-between p-3 bg-secondary/50 rounded-lg"
+                        >
+                          <p>
+                            {lesson.name}: محتوى الدرس. يمكنك إضافة فيديو، نص، أو
+                            اختبارات هنا.
+                          </p>
+                          {lesson.videoId ? (
+                            <Dialog>
+                              <DialogTrigger asChild>
+                                <button className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary hover:bg-primary/90">
+                                  <PlayCircle className="w-5 h-5" />
+                                  <span>مشاهدة</span>
+                                </button>
+                              </DialogTrigger>
+                              <DialogContent className="max-w-3xl">
+                                <DialogHeader>
+                                  <DialogTitle>{lesson.name}</DialogTitle>
+                                </DialogHeader>
+                                <div className="aspect-video">
+                                  <iframe
+                                    className="w-full h-full rounded-lg"
+                                    src={`https://www.youtube.com/embed/${lesson.videoId}`}
+                                    title="YouTube video player"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                  ></iframe>
+                                </div>
+                              </DialogContent>
+                            </Dialog>
+                          ) : (
+                            <button
+                              disabled
+                              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary/50 cursor-not-allowed"
+                            >
+                              <PlayCircle className="w-5 h-5" />
+                              <span>قريباً</span>
+                            </button>
+                          )}
                         </div>
                       ))}
                     </div>
