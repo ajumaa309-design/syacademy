@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Atom, FlaskConical, Book, Leaf } from 'lucide-react';
+import { Atom, FlaskConical, Book, Dna } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -9,7 +9,7 @@ export default function ScientificPage() {
     { name: 'الفيزياء', icon: <Atom className="w-10 h-10 text-primary" />, href: '/scientific/physics' },
     { name: 'الكيمياء', icon: <FlaskConical className="w-10 h-10 text-primary" />, href: '/scientific/chemistry' },
     { name: 'الرياضيات', icon: <Book className="w-10 h-10 text-primary" />, href: '/scientific/mathematics' },
-    { name: 'الأحياء', icon: <Leaf className="w-10 h-10 text-primary" />, href: '/scientific/biology' },
+    { name: 'الأحياء', icon: <Dna className="w-10 h-10 text-primary" />, href: '/scientific/biology' },
   ];
 
   return (
