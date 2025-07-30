@@ -16,11 +16,11 @@ export function CoursePaths() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <Link href="/scientific">
-            <div className="relative p-1 rounded-2xl bg-gradient-to-br from-[#0065F8] to-[#00CAFF] hover:scale-105 transition-transform duration-300 h-full">
+            <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-[#0065F8] to-[#00CAFF] hover:scale-105 transition-transform duration-300 h-full">
               <Card className="text-center bg-background h-full rounded-xl">
                 <CardHeader className="pt-10">
                   <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
-                    <Atom className="w-12 h-12 text-primary" />
+                    <Atom className="w-12 h-12 text-primary transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   <CardTitle className="text-3xl font-semibold">المسار العلمي</CardTitle>
                 </CardHeader>
@@ -33,11 +33,11 @@ export function CoursePaths() {
             </div>
           </Link>
            <Link href="/literary">
-             <div className="relative p-1 rounded-2xl bg-gradient-to-br from-[#4300FF] to-[#00FFDE] hover:scale-105 transition-transform duration-300 h-full">
+             <div className="group relative p-1 rounded-2xl bg-gradient-to-br from-[#4300FF] to-[#00FFDE] hover:scale-105 transition-transform duration-300 h-full">
                 <Card className="text-center bg-background h-full rounded-xl">
                     <CardHeader className="pt-10">
                     <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
-                        <BookOpen className="w-12 h-12 text-primary" />
+                        <BookOpen className="w-12 h-12 text-primary transition-transform duration-300 group-hover:scale-110" />
                     </div>
                     <CardTitle className="text-3xl font-semibold">المسار الأدبي</CardTitle>
                     </CardHeader>
