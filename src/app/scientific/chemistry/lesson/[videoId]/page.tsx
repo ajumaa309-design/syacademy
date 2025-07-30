@@ -3,57 +3,20 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Label } from '@/components/ui/label';
 import { useState } from 'react';
-import { useToast } from '@/hooks/use-toast';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, BrainCircuit } from 'lucide-react';
 
 export default function LessonPage({ params }: { params: { videoId: string } }) {
   const { videoId } = params;
-  const { toast } = useToast();
-  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>({});
-  const [submitted, setSubmitted] = useState(false);
+  
+  // A simple mapping from videoId to a topic.
+  // In a real app, this would likely come from a database.
+  const videoTopicMapping: Record<string, string> = {
+    'hnK-frJO1X8': 'الروابط التساهمية في الكيمياء'
+  };
+  const topic = videoTopicMapping[videoId] || 'درس الكيمياء';
 
-  const questions = [
-    {
-      id: 1,
-      question: 'ما هو المفهوم الرئيسي الذي تم شرحه في الفيديو؟',
-      options: ['الروابط التساهمية', 'الروابط الأيونية', 'التفاعلات النووية', 'الأحماض والقواعد'],
-      correctAnswer: 'الروابط التساهمية',
-    },
-    {
-      id: 2,
-      question: 'أي من التالية ليس مثالاً على رابطة تساهمية؟',
-      options: ['H2O', 'NaCl', 'CH4', 'O2'],
-      correctAnswer: 'NaCl',
-    },
-     {
-      id: 3,
-      question: 'ماذا يحدث للإلكترونات في الرابطة التساهمية؟',
-      options: ['يتم فقدها', 'يتم اكتسابها', 'تتم مشاركتها', 'لا تشارك في التفاعل'],
-      correctAnswer: 'تتم مشاركتها',
-    },
-  ];
-
-  const handleAnswerChange = (questionId: number, value: string) => {
-    setSelectedAnswers(prev => ({...prev, [questionId]: value}));
-  }
-
-  const handleSubmit = () => {
-    setSubmitted(true);
-    let score = 0;
-    questions.forEach(q => {
-        if(selectedAnswers[q.id] === q.correctAnswer) {
-            score++;
-        }
-    })
-    toast({
-        title: "تم تسليم الإجابات",
-        description: `لقد حصلت على ${score} من ${questions.length}`,
-    })
-  }
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -80,35 +43,19 @@ export default function LessonPage({ params }: { params: { videoId: string } }) 
 
         <Card>
             <CardHeader>
-                <CardTitle>أسئلة على الدرس</CardTitle>
+                <CardTitle>اختبر فهمك</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-8">
-                {questions.map((q) => (
-                    <div key={q.id}>
-                        <p className="font-semibold mb-4">{q.id}. {q.question}</p>
-                        <RadioGroup 
-                            onValueChange={(value) => handleAnswerChange(q.id, value)} 
-                            className="space-y-2"
-                            disabled={submitted}
-                        >
-                            {q.options.map(option => (
-                                <div key={option} className="flex items-center space-x-2 space-x-reverse">
-                                    <RadioGroupItem value={option} id={`${q.id}-${option}`} />
-                                    <Label 
-                                        htmlFor={`${q.id}-${option}`} 
-                                        className={`flex-1 ${submitted ? (option === q.correctAnswer ? 'text-green-600' : (selectedAnswers[q.id] === option ? 'text-red-600' : '')) : ''}`}
-                                    >
-                                        {option}
-                                    </Label>
-                                </div>
-                            ))}
-                        </RadioGroup>
-                    </div>
-                ))}
-
-                <Button onClick={handleSubmit} disabled={submitted} className="w-full mt-8">
-                    {submitted ? 'تم التسليم' : 'تسليم الإجابات'}
-                </Button>
+            <CardContent className="space-y-8 text-center">
+                <p className="text-muted-foreground">
+                    هل أنت مستعد لاختبار معلوماتك؟ سيقوم مساعدنا الذكي بإعداد اختبار قصير لك بناءً على محتوى هذا الدرس.
+                </p>
+                
+                <Link href={`/scientific/chemistry/lesson/${videoId}/quiz?topic=${encodeURIComponent(topic)}`}>
+                    <Button size="lg">
+                        <BrainCircuit className="w-5 h-5 ml-2" />
+                        <span>اختبر فهمك بالذكاء الاصطناعي</span>
+                    </Button>
+                </Link>
             </CardContent>
         </Card>
 
