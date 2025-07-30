@@ -11,30 +11,30 @@ export function Hero() {
     setIsMounted(true);
   }, []);
 
-  const bubbles = isMounted ? Array.from({ length: 20 }) : [];
+  const bubbles = isMounted ? Array.from({ length: 20 }).map((_, i) => {
+    const size = Math.random() * 4 + 1; // 1rem to 5rem
+    const style = {
+      width: `${size}rem`,
+      height: `${size}rem`,
+      left: `${Math.random() * 100}%`,
+      animationDuration: `${Math.random() * 15 + 10}s`, // 10s to 25s
+      animationDelay: `${Math.random() * 5}s`,
+    };
+    return (
+      <div
+        key={i}
+        className="absolute bottom-[-10rem] bg-white/10 rounded-full animate-float"
+        style={style}
+      />
+    );
+  }) : [];
 
   return (
     <section id="home" className="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary to-accent" />
       
       <div className="absolute inset-0 z-10 bubbles">
-        {bubbles.map((_, i) => {
-          const size = Math.random() * 4 + 1; // 1rem to 5rem
-          const style = {
-            width: `${size}rem`,
-            height: `${size}rem`,
-            left: `${Math.random() * 100}%`,
-            animationDuration: `${Math.random() * 15 + 10}s`, // 10s to 25s
-            animationDelay: `${Math.random() * 5}s`,
-          };
-          return (
-            <div
-              key={i}
-              className="absolute bottom-[-10rem] bg-white/10 rounded-full animate-float"
-              style={style}
-            />
-          );
-        })}
+        {bubbles}
       </div>
       
       <div className="relative z-20 container px-4 md:px-6">
