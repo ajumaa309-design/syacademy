@@ -10,7 +10,7 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-white">
               <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={32} height={32} />
-              <span className="font-headline">أكاديمية ساي</span>
+              <span className="font-headline">سي اكاديمي</span>
             </Link>
             <p className="text-sm">تمكين التعليم للجميع.</p>
             <div className="flex space-x-4">
@@ -55,7 +55,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} أكاديمية ساي. جميع الحقوق محفوظة.</p>
+          <p>&copy; {new Date().getFullYear()} سي اكاديمي. جميع الحقوق محفوظة.</p>
         </div>
       </div>
     </footer>

@@ -17,7 +17,7 @@ export function Header() {
       <div className="container flex h-16 max-w-7xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={32} height={32} />
-          <span className="font-headline">أكاديمية ساي</span>
+          <span className="font-headline">سي اكاديمي</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
@@ -45,7 +45,7 @@ export function Header() {
             <div className="flex flex-col gap-6 pt-10">
               <Link href="/" className="flex items-center gap-2 font-bold text-lg">
                 <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={32} height={32} />
-                <span className="font-headline">أكاديمية ساي</span>
+                <span className="font-headline">سي اكاديمي</span>
               </Link>
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link) => (

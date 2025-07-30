@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export function Hero() {
   const [isMounted, setIsMounted] = useState(false);
@@ -38,9 +39,10 @@ export function Hero() {
       </div>
       
       <div className="relative z-20 container px-4 md:px-6">
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="max-w-3xl mx-auto space-y-6 flex flex-col items-center">
+          <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={100} height={100} className="mb-4" />
           <h1 className="text-4xl font-headline font-extrabold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
-            أهلاً بكم في أكاديمية ساي
+            أهلاً بكم في سي اكاديمي
           </h1>
           <p className="text-lg md:text-xl text-primary-foreground/80">
             تجربة تعليمية عصرية، تفاعلية وسهلة الاستخدام، مصممة لجذب الطلاب وتسهيل التصفح.

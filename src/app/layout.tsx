@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'أكاديمية ساي - SyAcademy',
+  title: 'سي اكاديمي - SyAcademy',
   description: 'تمكين التعليم للجميع.',
 };
 
