@@ -49,7 +49,7 @@ export function Hero() {
           </p>
           <div>
             <Link href="#courses">
-              <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+              <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 animate-pulse">
                 ابدأ التعلم
               </Button>
             </Link>
