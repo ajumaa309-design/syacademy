@@ -3,9 +3,9 @@ import { Book, FlaskConical, Atom } from 'lucide-react';
 
 export default function ElmePage() {
   const subjects = [
-    { name: 'فيزيا', icon: <Atom className="w-10 h-10 text-primary" /> },
-    { name: 'كيميا', icon: <FlaskConical className="w-10 h-10 text-primary" /> },
-    { name: 'رياضيات', icon: <Book className="w-10 h-10 text-primary" /> },
+    { name: 'الفيزياء', icon: <Atom className="w-10 h-10 text-primary" /> },
+    { name: 'الكيمياء', icon: <FlaskConical className="w-10 h-10 text-primary" /> },
+    { name: 'الرياضيات', icon: <Book className="w-10 h-10 text-primary" /> },
   ];
 
   return (
