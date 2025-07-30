@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function Header() {
   const navLinks = [
-    { href: '#home', label: 'الرئيسية' },
+    { href: '/', label: 'الرئيسية' },
     { href: '#courses', label: 'المسارات' },
     { href: '#about', label: 'من نحن' },
     { href: '#contact', label: 'تواصل معنا' },
@@ -22,7 +22,7 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
             <Link
-              key={link.href}
+              key={link.label}
               href={link.href}
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
@@ -50,7 +50,7 @@ export function Header() {
               <nav className="flex flex-col gap-4">
                 {navLinks.map((link) => (
                   <Link
-                    key={link.href}
+                    key={link.label}
                     href={link.href}
                     className="font-medium text-foreground/80 hover:text-foreground"
                   >
