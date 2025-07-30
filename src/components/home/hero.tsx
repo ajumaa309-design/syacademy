@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { BookOpen, Atom, Pen, Star } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export function Hero() {
   const [isClient, setIsClient] = useState(false);
@@ -26,6 +27,7 @@ export function Hero() {
 
       <div className="relative z-10 container px-4 md:px-6">
         <div className="max-w-3xl mx-auto space-y-6 flex flex-col items-center">
+          <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={120} height={120} className="mb-4" />
           <h1 className="text-4xl font-headline font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
             استكشف المعرفة. نمّي مستقبلك.
           </h1>
