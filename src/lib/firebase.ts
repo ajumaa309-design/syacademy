@@ -9,6 +9,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyAMMW6jtgEzsCcs_dlikciL3JtjoOV3ZS0",
   authDomain: "syacademy-navigator.firebaseapp.com",
   messagingSenderId: "55153432916",
+  measurementId: ""
 };
 
 // Initialize Firebase
