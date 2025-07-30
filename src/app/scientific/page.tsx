@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Atom, FlaskConical, Book } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ScientificPage() {
   const subjects = [
@@ -11,9 +12,12 @@ export default function ScientificPage() {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-4xl font-bold text-center mb-12 font-headline">
-        المسار العلمي
-      </h1>
+      <div className="flex flex-col items-center justify-center mb-12">
+        <Image src="https://i.postimg.cc/8kvf6rQv/logo-syacademy.png" alt="SyAcademy Logo" width={100} height={100} />
+        <h1 className="text-4xl font-bold text-center mt-4 font-headline">
+          المسار العلمي
+        </h1>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {subjects.map((subject) => (
           <Link href={subject.href} key={subject.name}>
