@@ -1,11 +1,24 @@
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+'use client';
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { PlayCircle } from 'lucide-react';
 
 export default function PhysicsPage() {
-  const lessons = Array.from({ length: 10 }, (_, i) => `الدرس ${i + 1}`);
+  const units = Array.from({ length: 5 }, (_, i) => ({
+    name: `الوحدة ${i + 1}`,
+    lessons: Array.from({ length: 4 }, (_, j) => ({
+      name: `الدرس ${j + 1}`,
+      videoId: null,
+    })),
+  }));
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -14,22 +27,35 @@ export default function PhysicsPage() {
       </h1>
       <Card className="max-w-3xl mx-auto shadow-lg">
         <CardHeader>
-          <CardTitle>قائمة الدروس</CardTitle>
+          <CardTitle>قائمة الوحدات</CardTitle>
         </CardHeader>
         <CardContent>
           <Accordion type="single" collapsible className="w-full">
-            {lessons.map((lesson, index) => (
-              <AccordionItem value={`item-${index}`} key={lesson}>
+            {units.map((unit, index) => (
+              <AccordionItem value={`item-${index}`} key={unit.name}>
                 <AccordionTrigger className="text-lg font-semibold hover:text-primary transition-colors">
-                  {lesson}
+                  {unit.name}
                 </AccordionTrigger>
                 <AccordionContent>
-                  <div className="group flex items-center justify-between p-4 bg-secondary/30 rounded-lg hover:bg-secondary/70 transition-colors duration-300">
-                    <p className="text-muted-foreground group-hover:text-foreground transition-colors">محتوى الدرس. يمكنك إضافة فيديو، نص، أو اختبارات هنا.</p>
-                    <Button className="transform group-hover:scale-110 transition-transform duration-300">
-                      <PlayCircle className="w-5 h-5 ml-2" />
-                      <span>مشاهدة</span>
-                    </Button>
+                  <div className="space-y-2 p-2">
+                    {unit.lessons.map((lesson) => (
+                      <div
+                        key={lesson.name}
+                        className="group flex items-center justify-between p-4 bg-secondary/30 rounded-lg hover:bg-secondary/70 transition-colors duration-300"
+                      >
+                        <p className="text-muted-foreground group-hover:text-foreground transition-colors">
+                          {lesson.name}: محتوى الدرس. يمكنك إضافة فيديو، نص، أو
+                          اختبارات هنا.
+                        </p>
+                        <Button
+                          disabled
+                          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white rounded-md bg-primary/50 cursor-not-allowed transform group-hover:scale-110 transition-transform duration-300"
+                        >
+                          <PlayCircle className="w-5 h-5" />
+                          <span>قريباً</span>
+                        </Button>
+                      </div>
+                    ))}
                   </div>
                 </AccordionContent>
               </AccordionItem>
