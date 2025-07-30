@@ -3,18 +3,26 @@
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { BookOpen, Atom, Pen, Star } from 'lucide-react';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function Hero() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section id="home" className="relative w-full min-h-[600px] flex items-center justify-center text-center overflow-hidden py-20 bg-white">
-       <div className="absolute inset-0 z-0 opacity-10">
-        <Star className="absolute top-[10%] left-[10%] w-12 h-12 text-primary animate-pulse" />
-        <BookOpen className="absolute top-[20%] right-[15%] w-16 h-16 text-accent animate-pulse delay-500" />
-        <Atom className="absolute bottom-[15%] left-[20%] w-14 h-14 text-primary/70 animate-pulse delay-1000" />
-        <Pen className="absolute bottom-[25%] right-[5%] w-12 h-12 text-accent/80 animate-pulse delay-1500" />
-         <Star className="absolute top-[50%] left-[45%] w-8 h-8 text-primary/50 animate-pulse delay-2000" />
-      </div>
+      {isClient && (
+        <div className="absolute inset-0 z-0 opacity-10">
+          <Star style={{ position: 'absolute', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%`, animationDelay: `${Math.random() * 2}s` }} className="w-12 h-12 text-primary animate-pulse" />
+          <BookOpen style={{ position: 'absolute', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%`, animationDelay: `${Math.random() * 2}s` }} className="w-16 h-16 text-accent animate-pulse" />
+          <Atom style={{ position: 'absolute', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%`, animationDelay: `${Math.random() * 2}s` }} className="w-14 h-14 text-primary/70 animate-pulse" />
+          <Pen style={{ position: 'absolute', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%`, animationDelay: `${Math.random() * 2}s` }} className="w-12 h-12 text-accent/80 animate-pulse" />
+          <Star style={{ position: 'absolute', top: `${Math.random() * 80 + 10}%`, left: `${Math.random() * 80 + 10}%`, animationDelay: `${Math.random() * 2}s` }} className="w-8 h-8 text-primary/50 animate-pulse" />
+        </div>
+      )}
 
       <div className="relative z-10 container px-4 md:px-6">
         <div className="max-w-3xl mx-auto space-y-6 flex flex-col items-center">
