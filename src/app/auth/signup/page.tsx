@@ -32,10 +32,28 @@ export default function SignUpPage() {
         description: "مرحباً بك في سي اكاديمي!",
       });
     } catch (error: any) {
+      // Firebase errors have a code and message property.
+      // We will display the message to the user.
+      let description = "فشل في إنشاء الحساب. يرجى المحاولة مرة أخرى.";
+      if (error.code) {
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            description = "هذا البريد الإلكتروني مستخدم بالفعل.";
+            break;
+          case 'auth/weak-password':
+            description = "كلمة المرور ضعيفة جدًا. يجب أن تتكون من 6 أحرف على الأقل.";
+            break;
+          case 'auth/invalid-email':
+            description = "البريد الإلكتروني الذي أدخلته غير صالح.";
+            break;
+          default:
+            description = error.message;
+        }
+      }
       toast({
         variant: "destructive",
         title: "حدث خطأ ما",
-        description: error.message || "فشل في إنشاء الحساب. يرجى المحاولة مرة أخرى.",
+        description: description,
       });
     } finally {
       setIsLoading(false);
