@@ -5,7 +5,7 @@ export function Features() {
     {
       icon: <BookOpen className="w-10 h-10 text-primary" />,
       title: 'محتوى يتجدد باستمرار',
-      description: 'دورات جديدة تُضاف شهريًا. نُضيف دورات جديدة باستمرار لتواكب احتياجات الطلاب وتطوراتهم.',
+      description: 'نُحدّث دوراتنا بشكل دوري ونُضيف محتوى جديد كل شهر، لنضمن لك تجربة تعليمية مواكبة لأحدث التطورات واحتياجات الطلاب.',
     },
     {
       icon: <Users className="w-10 h-10 text-primary" />,
