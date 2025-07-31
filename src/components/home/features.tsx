@@ -4,7 +4,7 @@ export function Features() {
   const features = [
     {
       icon: <BookOpen className="w-10 h-10 text-primary" />,
-      title: '2. محتوى يتجدد باستمرار',
+      title: 'محتوى يتجدد باستمرار',
       description: 'دورات جديدة تُضاف شهريًا. نُضيف دورات جديدة باستمرار لتواكب احتياجات الطلاب وتطوراتهم.',
     },
     {
