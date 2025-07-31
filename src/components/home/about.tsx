@@ -19,7 +19,7 @@ export function About() {
         </div>
         <div className="flex justify-center">
             <Image
-                src="https://i.postimg.cc/MTyQg5ky/Gemini-Generated-Image-s4mxbcs4mxbcs4mx.png"
+                src="https://i.postimg.cc/YCHqs7ry/image.png"
                 width={600}
                 height={400}
                 alt="About SyAcademy"
