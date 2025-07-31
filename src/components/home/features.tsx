@@ -4,8 +4,8 @@ export function Features() {
   const features = [
     {
       icon: <BookOpen className="w-10 h-10 text-primary" />,
-      title: 'أكثر من 100 دورة',
-      description: 'استكشف مجموعة واسعة من الدورات في مختلف المجالات العلمية والأدبية.',
+      title: '2. محتوى يتجدد باستمرار',
+      description: 'دورات جديدة تُضاف شهريًا. نُضيف دورات جديدة باستمرار لتواكب احتياجات الطلاب وتطوراتهم.',
     },
     {
       icon: <Users className="w-10 h-10 text-primary" />,
