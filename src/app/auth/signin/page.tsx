@@ -87,12 +87,12 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <Card className="mx-auto max-w-sm w-full">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#00CAFF] to-[#00FFDE]">
+      <Card className="mx-auto max-w-sm w-full bg-white/90 backdrop-blur-sm shadow-lg rounded-2xl">
         <CardHeader>
-          <CardTitle className="text-2xl">تسجيل الدخول</CardTitle>
-          <CardDescription>
-            أدخل بريدك الإلكتروني وكلمة المرور للوصول إلى حسابك
+          <CardTitle className="text-2xl text-center">تسجيل الدخول</CardTitle>
+          <CardDescription className="text-center">
+            أدخل بريدك وكلمة المرور للوصول لحسابك
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -108,6 +108,7 @@ export default function SignInPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isLoading || isGoogleLoading}
+                  className="bg-white/80"
                 />
               </div>
               <div className="grid gap-2">
@@ -122,7 +123,7 @@ export default function SignInPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={isLoading || isGoogleLoading}
-                    className="pr-10"
+                    className="pr-10 bg-white/80"
                   />
                   <button
                     type="button"
@@ -134,12 +135,12 @@ export default function SignInPage() {
                   </button>
                 </div>
                  <div className="text-center text-sm">
-                  <Link href="/auth/forgot-password" className="underline">
+                  <Link href="/auth/forgot-password" className="underline hover:text-primary">
                     نسيت كلمة المرور؟
                   </Link>
                 </div>
               </div>
-              <Button type="submit" className="w-full" disabled={isLoading || isGoogleLoading}>
+              <Button type="submit" className="w-full bg-[#4300FF] hover:bg-[#0065F8]" disabled={isLoading || isGoogleLoading}>
                  {isLoading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
                 تسجيل الدخول
               </Button>
@@ -150,7 +151,7 @@ export default function SignInPage() {
               <span className="w-full border-t" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-muted-foreground">
+              <span className="bg-white/90 px-2 text-muted-foreground">
                 أو أكمل باستخدام
               </span>
             </div>
@@ -161,7 +162,7 @@ export default function SignInPage() {
           </Button>
           <div className="mt-4 text-center text-sm">
             ليس لديك حساب؟{" "}
-            <Link href="/auth/signup" className="underline">
+            <Link href="/auth/signup" className="underline hover:text-primary">
               إنشاء حساب
             </Link>
           </div>
@@ -170,3 +171,4 @@ export default function SignInPage() {
     </div>
   );
 }
+
