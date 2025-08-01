@@ -9,7 +9,8 @@ import {
   signInWithEmailAndPassword, 
   signInWithPopup,
   signOut,
-  GoogleAuthProvider
+  GoogleAuthProvider,
+  sendPasswordResetEmail
 } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
 import { Loader2 } from 'lucide-react';
@@ -22,6 +23,7 @@ interface AuthContextType {
   signin: (email: string, password: string) => Promise<any>;
   signInWithGoogle: () => Promise<any>;
   signout: () => Promise<any>;
+  sendPasswordReset: (email: string) => Promise<any>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -31,6 +33,7 @@ const AuthContext = createContext<AuthContextType>({
   signin: async () => {},
   signInWithGoogle: async () => {},
   signout: async () => {},
+  sendPasswordReset: async () => {},
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -62,6 +65,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const signout = () => {
     return signOut(auth);
   };
+  
+  const sendPasswordReset = (email: string) => {
+    return sendPasswordResetEmail(auth, email);
+  }
 
   const value = {
     user,
@@ -70,6 +77,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     signin,
     signInWithGoogle,
     signout,
+    sendPasswordReset,
   };
   
   if (loading) {

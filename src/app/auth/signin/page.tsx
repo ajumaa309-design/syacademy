@@ -113,6 +113,9 @@ export default function SignInPage() {
               <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="password">كلمة المرور</Label>
+                   <Link href="/auth/forgot-password" className="mr-auto inline-block text-sm underline">
+                    نسيت كلمة المرور؟
+                  </Link>
                 </div>
                 <div className="relative">
                   <Input 
