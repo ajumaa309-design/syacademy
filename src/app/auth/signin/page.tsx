@@ -113,9 +113,6 @@ export default function SignInPage() {
               <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="password">كلمة المرور</Label>
-                   <Link href="/auth/forgot-password" className="mr-auto inline-block text-sm underline">
-                    نسيت كلمة المرور؟
-                  </Link>
                 </div>
                 <div className="relative">
                   <Input 
@@ -135,6 +132,11 @@ export default function SignInPage() {
                   >
                     {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                   </button>
+                </div>
+                 <div className="text-center text-sm">
+                  <Link href="/auth/forgot-password" className="underline">
+                    نسيت كلمة المرور؟
+                  </Link>
                 </div>
               </div>
               <Button type="submit" className="w-full" disabled={isLoading || isGoogleLoading}>
