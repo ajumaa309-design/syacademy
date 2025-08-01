@@ -87,10 +87,10 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen bg-background overflow-hidden">
-        <div className="absolute top-16 left-16 transform -rotate-[25deg] z-10">
-            <p className="text-6xl font-bold font-headline text-accent opacity-70">يا هلاااااا</p>
-        </div>
+    <div className="relative flex flex-col items-center justify-center min-h-screen bg-background overflow-hidden pt-20">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[calc(50%+10rem)] transform -rotate-[15deg] z-30">
+        <p className="text-6xl font-bold font-headline text-accent opacity-90 whitespace-nowrap">يا هلاااااا</p>
+      </div>
       <Card className="mx-auto max-w-sm w-full z-20">
         <CardHeader>
           <CardTitle className="text-2xl text-center">تسجيل الدخول</CardTitle>
