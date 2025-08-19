@@ -9,10 +9,13 @@ import {
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { PlayCircle, FileQuestion, ShoppingCart } from 'lucide-react';
+import { PlayCircle, FileQuestion, ShoppingCart, LogIn } from 'lucide-react';
 import Link from 'next/link';
+import { useAuth } from '@/hooks/use-auth';
 
 export default function ChemistryPage() {
+  const { user, loading } = useAuth();
+
   const units = Array.from({ length: 5 }, (_, i) => ({
       name: `الوحدة ${i + 1}`,
       lessons: Array.from({ length: 4 }, (_, j) => ({
@@ -22,6 +25,7 @@ export default function ChemistryPage() {
   }));
 
   // In a real app, you'd check if the user has purchased the course
+  // This would likely involve checking a database field associated with the user
   const hasPurchased = false; 
 
   return (
@@ -43,12 +47,26 @@ export default function ChemistryPage() {
                 <p className="text-muted-foreground">
                   افتح جميع الدروس والاختبارات لهذه المادة مقابل دفعة لمرة واحدة.
                 </p>
-                 <Link href={`/checkout?course=chemistry&price=100&name=${encodeURIComponent('مادة الكيمياء')}`}>
-                  <Button size="lg">
-                    <ShoppingCart className="ml-2 h-5 w-5" />
-                    شراء المادة مقابل 1 دولار
-                  </Button>
-                </Link>
+                {!loading && user ? (
+                  <Link href={`/checkout?course=chemistry&price=100&name=${encodeURIComponent('مادة الكيمياء')}`}>
+                    <Button size="lg">
+                      <ShoppingCart className="ml-2 h-5 w-5" />
+                      شراء المادة مقابل 1 دولار
+                    </Button>
+                  </Link>
+                ) : !loading && !user && (
+                   <div className="text-center space-y-4">
+                        <p className="text-muted-foreground">
+                            يرجى تسجيل الدخول أولاً لتتمكن من الشراء.
+                        </p>
+                        <Link href="/auth/signin">
+                            <Button size="lg">
+                                <LogIn className="ml-2 h-5 w-5" />
+                                تسجيل الدخول
+                            </Button>
+                        </Link>
+                    </div>
+                )}
               </CardContent>
             </Card>
           )}
