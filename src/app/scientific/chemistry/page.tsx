@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { PlayCircle, FileQuestion } from 'lucide-react';
+import { PlayCircle, FileQuestion, ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ChemistryPage() {
@@ -21,6 +21,8 @@ export default function ChemistryPage() {
       })),
   }));
 
+  // In a real app, you'd check if the user has purchased the course
+  const hasPurchased = false; 
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -32,7 +34,26 @@ export default function ChemistryPage() {
           <CardTitle>قائمة الوحدات</CardTitle>
         </CardHeader>
         <CardContent>
-          <Accordion type="single" collapsible className="w-full">
+          {!hasPurchased && (
+            <Card className="mb-6 bg-primary/10 border-primary/20">
+              <CardContent className="pt-6 flex flex-col items-center justify-center text-center gap-4">
+                <h3 className="text-xl font-semibold">
+                  احصل على وصول كامل لهذه المادة
+                </h3>
+                <p className="text-muted-foreground">
+                  افتح جميع الدروس والاختبارات لهذه المادة مقابل دفعة لمرة واحدة.
+                </p>
+                 <Link href={`/checkout?course=chemistry&price=100&name=${encodeURIComponent('مادة الكيمياء')}`}>
+                  <Button size="lg">
+                    <ShoppingCart className="ml-2 h-5 w-5" />
+                    شراء المادة مقابل 1 دولار
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          )}
+
+          <Accordion type="single" collapsible className="w-full" disabled={!hasPurchased}>
             {units.map((unit, index) => (
               <AccordionItem value={`item-${index}`} key={unit.name}>
                 <AccordionTrigger className="text-lg font-semibold">
