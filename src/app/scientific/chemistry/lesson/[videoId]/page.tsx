@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { ArrowLeft, BrainCircuit } from 'lucide-react';
 
 export default function LessonPage({ params }: { params: { videoId: string } }) {
-  const videoId = params.videoId;
+  const { videoId } = params;
   
   // A simple mapping from videoId to a topic.
   // In a real app, this would likely come from a database.
