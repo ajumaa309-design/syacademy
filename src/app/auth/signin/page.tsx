@@ -88,7 +88,9 @@ export default function SignInPage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background">
-      <h1 className="text-4xl font-bold mb-8">يا هلاا</h1>
+      <h1 className="text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+        يا هلاا
+      </h1>
       <Card className="mx-auto max-w-sm w-full">
         <CardHeader>
           <CardTitle className="text-2xl text-center">تسجيل الدخول</CardTitle>
