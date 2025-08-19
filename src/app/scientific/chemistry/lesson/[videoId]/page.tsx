@@ -3,12 +3,12 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, BrainCircuit } from 'lucide-react';
 
-export default function LessonPage({ params }: { params: { videoId: string } }) {
-  const { videoId } = params;
+export default function LessonPage({ params }: { params: Promise<{ videoId: string }> }) {
+  const { videoId } = use(params);
   
   // A simple mapping from videoId to a topic.
   // In a real app, this would likely come from a database.
