@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl" className="!scroll-smooth" suppressHydrationWarning>
-      <body className={`${tajawal.variable} font-body antialiased`}>
+      <body className={`${tajawal.variable} font-body antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
