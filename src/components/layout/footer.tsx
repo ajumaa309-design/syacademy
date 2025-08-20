@@ -1,5 +1,6 @@
+
 import Link from 'next/link';
-import { Twitter, Instagram, Linkedin, MessageCircle } from 'lucide-react';
+import { Instagram, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 
 export function Footer() {
@@ -14,17 +15,9 @@ export function Footer() {
             </Link>
             <p className="text-sm">تمكين التعليم للجميع.</p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-white">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">تويتر</span>
-              </Link>
-              <Link href="https://www.instagram.com/sy_academy.official?igsh=b21tZjAxcHd1NTEy" className="text-gray-400 hover:text-white">
+              <Link href="https://www.instagram.com/sy_academy.official?igsh=b21tZjAxcHd1NTEy" className="flex items-center gap-2 text-gray-400 hover:text-white">
                 <Instagram className="h-5 w-5" />
-                <span className="sr-only">انستغرام</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white">
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">لينكد إن</span>
+                <span>sy_academy.official</span>
               </Link>
             </div>
           </div>
