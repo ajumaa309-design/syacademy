@@ -17,7 +17,7 @@ export default function PhysicsPage() {
     name: `الوحدة ${i + 1}`,
     lessons: Array.from({ length: 4 }, (_, j) => ({
       name: `الدرس ${j + 1}`,
-      videoId: 'x7NM62xfOGM',
+      videoId: '-u9cibldYN4',
     })),
   }));
 
@@ -74,7 +74,7 @@ export default function PhysicsPage() {
                       <p className="font-semibold">
                         هل أنت مستعد لاختبار معلوماتك في كامل الوحدة؟
                       </p>
-                       <Link href={`/scientific/chemistry/lesson/x7NM62xfOGM/quiz?topic=${encodeURIComponent(unit.name)}`}>
+                       <Link href={`/scientific/chemistry/lesson/-u9cibldYN4/quiz?topic=${encodeURIComponent(unit.name)}`}>
                           <Button variant="outline" asChild>
                             <div className="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md cursor-pointer">
                               <FileQuestion className="w-5 h-5" />
