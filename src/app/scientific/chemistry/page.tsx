@@ -14,13 +14,24 @@ import Link from 'next/link';
 
 export default function ChemistryPage() {
 
-  const units = Array.from({ length: 5 }, (_, i) => ({
-      name: `الوحدة ${i + 1}`,
+  const units = [
+    {
+      name: 'الوحدة 1',
+      lessons: [
+        { name: 'الدرس 1', videoId: '-u9cibldYN4' },
+        { name: 'الدرس 2', videoId: 'x7NM62xfOGM' },
+        { name: 'الدرس 3', videoId: 'x7NM62xfOGM' },
+        { name: 'الدرس 4', videoId: 'x7NM62xfOGM' },
+      ],
+    },
+    ...Array.from({ length: 4 }, (_, i) => ({
+      name: `الوحدة ${i + 2}`,
       lessons: Array.from({ length: 4 }, (_, j) => ({
         name: `الدرس ${j + 1}`,
         videoId: 'x7NM62xfOGM',
       })),
-  }));
+    })),
+  ];
 
   return (
     <div className="container mx-auto px-4 py-12">
